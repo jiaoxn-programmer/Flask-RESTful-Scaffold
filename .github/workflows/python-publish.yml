@@ -22,11 +22,11 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.9'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build
+        python -m pip install --upgrade twine
     - name: Build package
       run: python -m build
     - name: Publish package
@@ -34,3 +34,4 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+      run: python -m upload dist/*
