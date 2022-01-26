@@ -1,1 +1,2 @@
-name = "flask_restful_scaffold"
+def hello():
+    print("hello")
